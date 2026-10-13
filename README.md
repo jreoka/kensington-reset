@@ -37,6 +37,28 @@ kensington-reset [--unit ID]... [--component storage|sensor|engine]
 Run elevated — the privileged erase and the device restart both require it.
 `E_ACCESSDENIED` in the output means you forgot.
 
+## Build
+
+On Windows with Rust installed:
+
+```text
+cargo build --release
+```
+
+That produces a single `kensington-reset.exe` (~900 KB, zero
+dependencies). Copy it to the target machine and run elevated.
+
+Cross-compiled from Linux with mingw (how the bundled exe was built):
+
+```text
+rustup target add x86_64-pc-windows-gnu
+cargo build --release --target x86_64-pc-windows-gnu
+```
+
+`winbio.dll` ships no mingw import lib, so one is generated from
+`.cargo/libs/winbio.def` via `dlltool` (prebuilt as
+`.cargo/libs/libwinbio.a`).
+
 ## What this replaces
 
 The stock package (`Kensington-132 _v6_0_9_1132_x64_inf_WHQL_pass`) needs a

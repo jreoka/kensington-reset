@@ -1,0 +1,9 @@
+LIBRARY winbio.dll
+EXPORTS
+WinBioOpenSession
+WinBioCloseSession
+WinBioEnumBiometricUnits
+WinBioFree
+WinBioLockUnit
+WinBioUnlockUnit
+WinBioControlUnitPrivileged
