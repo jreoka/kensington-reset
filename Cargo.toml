@@ -1,0 +1,10 @@
+[package]
+name = "kensington-reset"
+version = "1.0.0"
+edition = "2021"
+description = "Clear all fingerprints from a Kensington/Synaptics VeriMark reader and reset the device"
+license = "MIT"
+
+[profile.release]
+opt-level = "s"
+strip = true
